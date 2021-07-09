@@ -12,6 +12,7 @@ import time
 import io
 import base64
 import math
+import asyncio
 
 flag_path = 'CBGen/static/'
 alphabet = 'абвгдеёжзиклмнопрстуфхыэюя'
@@ -138,23 +139,24 @@ def paint(img):
             flag_start, flag_shape = div_block_paint(img, flag_shape, flag_start)
         else:
             continue
-        # print(flag_shape, flag_start)
-        # print(templ)
 
 def flag_create():
     color = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
     img = np.full((512, 512, 3), color, np.uint8)
+    print('paint start')
     paint(img)
-
+    print('paint finnished')
     fn = str(time.time())
     is_success, buffer = cv2.imencode('.jpg', img)
     fio = io.BytesIO(buffer)
     fio.seek(0)
     url = base64.b64encode(fio.getvalue()).decode()
+    print('file saved')
     return 'data:image/jpeg;base64, {}'.format(url)
 
 @app.route("/", methods=["POST"])
 def generate():
+    print('generation started')
     name = ''
 
     rideo = random.randint(0, len(CountryIdeologies) - 1)
@@ -185,8 +187,10 @@ def generate():
     name += rtype
     name += ' ' + name_create()
 
+    print('flag generation started')
     flag = flag_create()
 
+    print('done')
     return render_template('index.html', title='Home Page', BallFlag = flag,
                            BallName=name, BallIdeology=ideology, BallGovtype=govtype)
 
