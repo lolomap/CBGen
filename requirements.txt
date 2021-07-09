@@ -6,4 +6,5 @@ Jinja2==2.11.3
 MarkupSafe==2.0.1
 numpy==1.21.0
 opencv-python==4.5.2.54
+waitress==2.0.0
 Werkzeug==1.0.1
