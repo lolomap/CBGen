@@ -58,7 +58,7 @@
   <ItemGroup>
     <Content Include=".editorconfig" />
     <Content Include="bin\Microsoft.PythonTools.WebRole.dll" />
-    <Content Include="CBGen\Procfile.txt" />
+    <Content Include="CBGen\Procfile" />
     <Content Include="CBGen\static\scripts\main.js" />
     <Content Include="CBGen\templates\index.html" />
     <Content Include="requirements.txt" />
