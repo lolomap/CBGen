@@ -1,1 +1,1 @@
-web: gunicorn runserver.py:app
+web: gunicorn runserver:app --preload
