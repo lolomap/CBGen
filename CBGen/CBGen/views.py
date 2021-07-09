@@ -156,43 +156,46 @@ def flag_create():
 
 @app.route("/", methods=["POST"])
 def generate():
-    print('generation started')
-    name = ''
+    try:
+        print('generation started')
+        name = ''
 
-    rideo = random.randint(0, len(CountryIdeologies) - 1)
-    rsubideo = random.randint(0, len(CountryIdeologies[rideo]) - 1)
-    ideology = CountryIdeologies[rideo][rsubideo]
+        rideo = random.randint(0, len(CountryIdeologies) - 1)
+        rsubideo = random.randint(0, len(CountryIdeologies[rideo]) - 1)
+        ideology = CountryIdeologies[rideo][rsubideo]
 
-    allowed_types = []
-    if rideo == 0:
-        allowed_types = CountryTypes[:6]
-    elif rideo == 1:
-        allowed_types = [CountryTypes[6]]
-    elif rideo == 2:
-        allowed_types = [CountryTypes[7]]
-    elif rideo == 3:
-        allowed_types = CountryTypes[3:7]
-    rtype = allowed_types[random.randint(0, len(allowed_types) - 1)]
-    if rtype in CountryTypes[3:6] and rideo == 3:
-        govtype = 'Парламентская монархия'
-    elif rideo == 0:
-        if rtype in CountryTypes[2:6]:
-            govtype = CountryGovtypes[0][random.randint(0, len(CountryGovtypes[0]) - 1)]
+        allowed_types = []
+        if rideo == 0:
+            allowed_types = CountryTypes[:6]
+        elif rideo == 1:
+            allowed_types = [CountryTypes[6]]
+        elif rideo == 2:
+            allowed_types = [CountryTypes[7]]
+        elif rideo == 3:
+            allowed_types = CountryTypes[3:7]
+        rtype = allowed_types[random.randint(0, len(allowed_types) - 1)]
+        if rtype in CountryTypes[3:6] and rideo == 3:
+            govtype = 'Парламентская монархия'
+        elif rideo == 0:
+            if rtype in CountryTypes[2:6]:
+                govtype = CountryGovtypes[0][random.randint(0, len(CountryGovtypes[0]) - 1)]
+            else:
+                govtype = CountryGovtypes[4][random.randint(0, len(CountryGovtypes[4]) - 1)]
         else:
-            govtype = CountryGovtypes[4][random.randint(0, len(CountryGovtypes[4]) - 1)]
-    else:
-        govtype = CountryGovtypes[rideo][random.randint(0, len(CountryGovtypes[rideo]) - 1)]
+            govtype = CountryGovtypes[rideo][random.randint(0, len(CountryGovtypes[rideo]) - 1)]
         
 
-    name += rtype
-    name += ' ' + name_create()
+        name += rtype
+        name += ' ' + name_create()
 
-    print('flag generation started')
-    flag = flag_create()
+        print('flag generation started')
+        flag = flag_create()
 
-    print('done')
-    return render_template('index.html', title='Home Page', BallFlag = flag,
-                           BallName=name, BallIdeology=ideology, BallGovtype=govtype)
+        print('done')
+        return render_template('index.html', title='Home Page', BallFlag = flag,
+                               BallName=name, BallIdeology=ideology, BallGovtype=govtype)
+    except Exception as e:
+        print('THERE IS EXCEPTION\n' + str(e))
 
 @app.route('/')
 @app.route('/home')
