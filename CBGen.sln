@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "CBGen", "CBGen\CBGen.pyproj", "{F41B0D7A-77CE-4743-87A9-3C182EC1D09D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F41B0D7A-77CE-4743-87A9-3C182EC1D09D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F41B0D7A-77CE-4743-87A9-3C182EC1D09D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F41B0D7A-77CE-4743-87A9-3C182EC1D09D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F41B0D7A-77CE-4743-87A9-3C182EC1D09D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9813CBA2-DD50-45B5-BD8F-483617E6C83C}
+	EndGlobalSection
+EndGlobal
