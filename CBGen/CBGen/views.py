@@ -138,8 +138,8 @@ def paint(img):
             flag_start, flag_shape = div_block_paint(img, flag_shape, flag_start)
         else:
             continue
-        print(flag_shape, flag_start)
-        print(templ)
+        # print(flag_shape, flag_start)
+        # print(templ)
 
 def flag_create():
     color = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
