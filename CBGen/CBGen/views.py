@@ -192,6 +192,7 @@ def flag_create():
     fn = str(time.time())
     is_success, buffer = cv2.imencode('.jpg', img)
     fio = io.BytesIO(buffer)
+    print(fio.__sizeof__())
     fio.seek(0)
     url = base64.b64encode(fio.getvalue()).decode()
     return 'data:image/jpeg;base64, {}'.format(url)
